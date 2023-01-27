@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,9 +13,12 @@
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +26,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:server": "webpack --config webpack.server.ts",
+    "ssr": "node server-build/server.js",
+    "dev": "npm-run-all build build:server ssr"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +48,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/register": "^7.18.9",
+    "css-loader": "^6.7.3",
+    "ignore-styles": "^5.0.1",
+    "mini-css-extract-plugin": "^2.7.2",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "source-map-loader": "^4.0.1",
+    "style-loader": "^3.3.1",
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }
